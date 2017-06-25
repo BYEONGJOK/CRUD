@@ -1,0 +1,23 @@
+<h1>Instagram</h1>
+
+<form action="/questions/create" method="post" enctype="multipart/form-data">
+    <label for="name">Name : </lable><input type="text" name = "input_name" id="name" placeholder="익명의 개발자"></input>
+    <label for="ask">Contents : </label><input type="text"  name = "input_content" id="ask" placeholder="레일즈 좋아요?"></input>
+    <input type="submit" value="입력하기!"></input>
+    
+     <input type="file" name="pic" accept="image/*">  <!-- input type file image -->
+  
+</form>
+
+<h2>지금까지 질문들</h2>
+
+<% @all.each do |q| %>
+
+<img src="<%= q.image_url %>">
+<p><%= q.name %> : <%=q.content %></p>
+<a href="/update_view/<%= q.id %>">[수정]</a>
+<a href="/destroy/<%= q.id %>">[삭제]</a>
+<hr>
+<% end %>
+
+<hr>

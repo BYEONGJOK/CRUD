@@ -1,0 +1,7 @@
+<h1> 수정 페이지 </h1>
+
+<form action="/update_real/<%= @qs.id %>" method="post">
+    <label for="name">이름 : </lable><input type="text" name = "input_name" id="name" value="<%= @qs.name %>"></input>
+    <label for="ask">질문 : </label><input type="text"  name = "input_content" id="ask" value= "<%= @qs.content %>"></input>
+    <input type="submit" value="물어보기!"></input>
+</form>
