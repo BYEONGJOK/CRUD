@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   
   post 'update_real/:qs_id' => 'questions#update_real'
   
+  get 'reply_view/:qs_id' => 'questions#reply_view'
+  
+  post 'questions/new/:qs_id/comments/create' => 'comments#create'
+  
+  get 'questions/new/:qs_id/comments/destroy/:comment_id' => 'comments#destroy'
+  
+  get 'questions/why' => 'questions#why'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

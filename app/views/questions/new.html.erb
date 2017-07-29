@@ -1,23 +1,26 @@
-<h1>Instagram</h1>
 
-<form action="/questions/create" method="post" enctype="multipart/form-data">
-    <label for="name">Name : </lable><input type="text" name = "input_name" id="name" placeholder="익명의 개발자"></input>
-    <label for="ask">Contents : </label><input type="text"  name = "input_content" id="ask" placeholder="레일즈 좋아요?"></input>
-    <input type="submit" value="입력하기!"></input>
+<!--<form action="/questions/create" method="post" enctype="multipart/form-data">-->
+<!--    <label for="name">Name : </lable><input type="text" name = "input_name" id="name" placeholder="익명의 개발자"></input>-->
+<!--    <label for="ask">Contents : </label><input type="text"  name = "input_content" id="ask" placeholder="레일즈 좋아요?"></input>-->
+<!--    <input type="submit" value="입력하기!"></input>-->
     
-     <input type="file" name="pic" accept="image/*">  <!-- input type file image -->
+<!--     <input type="file" name="pic" accept="image/*"> -->
   
-</form>
+<!--</form>-->
 
-<h2>지금까지 질문들</h2>
-
-<% @all.each do |q| %>
-
-<img src="<%= q.image_url %>">
-<p><%= q.name %> : <%=q.content %></p>
+<div style= "text-align:center">
+    <h2>What The Fuck</h2>
+     <h3><a href="/questions/why">질문하기</a></h3>
+    
+<% @order.each do |q| %>
+<img src="<%= q.image_url %>" width="600" height="500" alt="image">
+<p>Title : <%= q.name %></p>
+<p>Content : <%=q.content %></p>
 <a href="/update_view/<%= q.id %>">[수정]</a>
-<a href="/destroy/<%= q.id %>">[삭제]</a>
+<a href="/destroy/<%= q.id %>" onclick="delete()">[삭제]</a>
+<a href="/reply_view/<%= q.id %>" onclick="window.open('/reply_view/<%= q.id %>', 'newwindow', 'width=800,height=800'); return false;">[답변]</a>
 <hr>
 <% end %>
+</div>
 
 <hr>

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+
 gem "fog-aws"
 
 gem 'carrierwave', '~> 1.0'

@@ -1,0 +1,46 @@
+<div style="text-align:center">
+<h1> 답변페이지 </h1>
+ 
+<div><img width="500" height="500" src="<%= @qs.image_url %>" alt="image_handle"></div>
+<p>Title : <%= @qs.name %></p>
+<p>Content : <%= @qs.content %></p>
+
+<form action="/questions/new/<%= @qs.id %>/comments/create" method="post">   <!-- questions컨트롤러 안에 new뷰에 있는 대댓글 쓸 q.id 를 찾아서 comments컨트롤러의 creat -->
+ <textarea rows="4" cols="80" name="input_comment" placeholder="정확한답글입력!"></textarea>
+ <br>
+ 
+ <input type="submit" value="댓글달기">  
+ <button type="button" onclick="myfunction1()">댓글닫기</button>
+</form>
+</br>
+<script>
+
+    function myfunction1(){
+         $('#overlay').css('display','none');
+    }
+</script>
+
+
+<!-- 대댓글 출력 -->
+<div id="overlay">
+<% @comments.each do |comment| %>
+    <% if comment.question_id == @qs.id %>
+    <p><%= comment.content %>
+   
+    <a href ="#">[수정]</a> 
+    <a href = '/questions/new/<%= @qs.id %>/comments/destroy/<%= comment.id %>'>[삭제]</a>
+    <a href ="#">[채택]</a></p>
+    <!--<button type="button" onclick="myfunction2()">[수정]</button>-->
+    <!--<script>-->
+        
+    <!--    function myfunction2(){-->
+        
+            <!--수정버튼 눌렀을때 댓글 활성화 하도록 수정 해보자!!!!!!!!!!!!!!!!!!!-->
+            
+    <!--    }-->
+    <!--</script>-->
+    
+    <% end %>
+<% end %>
+</div>
+</div>

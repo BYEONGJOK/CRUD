@@ -1,8 +1,10 @@
 
 <div style="text-align:center">
-<h1> 수정 페이지 </h1>
-<form action="/update_real/<%= @qs.id %>" method="post">
-    <label for="name">제목 : </lable><input type="text" name = "input_name" id="name" value="<%= @qs.name %>"></input>
+    <form action="/questions/create" method="post" enctype="multipart/form-data">
+        </br>
+      <div style="margin : 10px">
+          <label for="name">제목 : </label><input type="text" name="input_name" placeholder="#NCS #영어작문"></input>
+        </div>
             <div>
                  <label for="classify">분류 :</label> 
                     <div class="btn-group" role="group" aria-label="Basic example" name="classify" style="margin : 20px">
@@ -13,25 +15,24 @@
                         <button type="button" class="btn btn-warning">NCS</button>
                     </div>
             </div>
-            <div>
-                <Label for="pic">이미지 선택  </Label><input type="file" id="picture" name="pic" accept="image/*">
-            </div>
+                    <div>
+                         <Label for="pic">이미지 선택  </Label><input type="file" id="picture" name="pic" accept="image/*">
+                    </div>
         </br>
         
-         <div id="preview" style ="width=400; height=300;" >
+          <div id="preview" style ="width=400; height=300;" >
               <img id="imagePreview" src="#" alt="Preview upload images">
           </div>
           
         </br>
         <div>
-        <textarea rows="4" cols="80" name="input_content" placeholder"내용입력하세요!" value= "<%= @qs.content %>"> </textarea>
+        <textarea rows="4" cols="80" name="input_content" placeholder"내용입력하세요!"> </textarea>
         </div>
         </br>
         <div>
-           <input type="submit" value="수정하기"></input>
+           <input type="submit" value="제출하기"></input>
         </div>
-   
-</form>
+    </form>
 </div>
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -57,3 +58,4 @@ $("#picture").change(function(){
     readUploadImage(this);
 });
 </script>
+
